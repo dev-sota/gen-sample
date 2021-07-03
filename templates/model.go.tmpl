@@ -4,7 +4,7 @@ import (
     "time"
 )
 
-type {{.StructName}} struct {
+type {{singular .StructName}} struct {
     {{range .TableInfo.Fields}}{{.}}
     {{end}}
 }
