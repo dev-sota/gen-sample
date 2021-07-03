@@ -15,7 +15,6 @@ cp -r templates YOUR_WORKSPACE
 gen --save=./mytemplates
 ```
 
-
 ### Generate entity file
 ```
 gen -c "root:@tcp(127.0.0.1:3306)/gen-sample" \
@@ -28,5 +27,8 @@ gen -c "root:@tcp(127.0.0.1:3306)/gen-sample" \
 --gorm \
 --overwrite \
 && rm infra/entity/ar_internal_metadatum.go \
-&& rm infra/entity/schema_migration.go
+&& rm infra/entity/schema_migration.go \
+&& sed -i "s/.\/.*//g" infra/entity/* \
+&& sed -i '/^$/d' infra/entity/* \
+&& gofmt -s -w infra/entity/.
 ```
