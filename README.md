@@ -18,9 +18,11 @@ gen --save=./mytemplates
 
 ### Generate entity file
 ```
-gen -c "root:@tcp(127.0.0.1:3306)/gen-sample" -d gen-sample \
+gen -c "root:@tcp(127.0.0.1:3306)/gen-sample" \
+-d gen-sample \
 --out ./infra \
---model=entity --templateDir=templates \
+--model=entity \
+--templateDir=templates \
 --mapping=templates/mapping.json \
 --exec=templates/custom.gen \
 --gorm \
