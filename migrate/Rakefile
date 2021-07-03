@@ -1,0 +1,4 @@
+require 'dotenv'
+require 'standalone_migrations'
+Dotenv.load('.env')
+StandaloneMigrations::Tasks.load_tasks
