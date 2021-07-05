@@ -17,8 +17,9 @@ gen --save=./mytemplates
 
 ### Generate entity file
 ```
-gen -c "root:@tcp(127.0.0.1:3306)/gen-sample" \
--d gen-sample \
+gen --connstr="root:@tcp(127.0.0.1:3306)/gen-sample" \
+--database=gen-sample \
+--exclude=ar_internal_metadata,schema_migrations \
 --out ./infra \
 --model=entity \
 --templateDir=templates \
@@ -26,8 +27,6 @@ gen -c "root:@tcp(127.0.0.1:3306)/gen-sample" \
 --exec=templates/entity.gen \
 --gorm \
 --overwrite \
-&& rm infra/entity/ar_internal_metadatum.go \
-&& rm infra/entity/schema_migration.go \
 && sed -i "s/.\/.*//g" infra/entity/* \
 && sed -i '/^$/d' infra/entity/* \
 && gofmt -s -w infra/entity/.
