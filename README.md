@@ -23,7 +23,7 @@ gen -c "root:@tcp(127.0.0.1:3306)/gen-sample" \
 --model=entity \
 --templateDir=templates \
 --mapping=templates/mapping.json \
---exec=templates/custom.gen \
+--exec=templates/entity.gen \
 --gorm \
 --overwrite \
 && rm infra/entity/ar_internal_metadatum.go \
